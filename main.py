@@ -98,13 +98,15 @@ import asyncio
 from web3 import Web3
 from trans_bot import send_test_message
 
+from dotenv import load_dotenv
+import os
+load_dotenv()
+
 # rpc_server_address = 'https://rpc.sepolia.org'
 # rpc_server_address = 'https://arbitrum-goerli.public.blastapi.io'
 # rpc_server_address = 'https://testnet.era.zksync.dev'
-rpc_server_address = 'https://base-goerli.blockpi.network/v1/rpc/public'
-address = '0x45A616Fe04b73fD9B8d3D3172578981C1ea7D1eE'
-
-# connect RPC
+rpc_server_address = os.environ.get('RPC_SERVER_ADDRESS')
+address = os.environ.get('USER_ADDRESS')
 web3 = Web3(Web3.HTTPProvider(rpc_server_address))
 
 # get block

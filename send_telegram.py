@@ -4,15 +4,18 @@ from telethon.sync import TelegramClient
 from telethon.tl.types import InputPeerUser, InputPeerChannel
 from telethon import TelegramClient, sync, events
 
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
 # get your api_id, api_hash, token
 # from telegram as described above
-api_id = '28866430'
-api_hash = '1e1b0a562ff3b000aaee136c1c2e2f55'
+api_id = os.environ.get('API_ID')
+api_hash = os.environ.get('API_HASH')
 message = "Working..."
 
 # your phone number
-phone = '+84379288505'
+phone =  os.environ.get('PHONE_NUMBER')
 
 # creating a telegram session and assigning
 # it to a variable client
